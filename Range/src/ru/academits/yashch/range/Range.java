@@ -35,56 +35,47 @@ public class Range {
     }
 
     public Range getIntersection(Range range) {
-        if ((this.to < range.from) || (this.from > range.to)) {
+        if ((to <= range.from) || (from >= range.to)) {
             return null;
         }
 
-        double newFrom = Math.max(this.from, range.from);
-        double newTo = Math.min(this.to, range.to);
+        double newFrom = Math.max(from, range.from);
+        double newTo = Math.min(to, range.to);
 
         return new Range(newFrom, newTo);
     }
 
     public Range[] getAssociation(Range range) {
-        if ((this.to < range.from) || (this.from > range.to)) {
-            return new Range[]{new Range(this.from, this.to), new Range(range.from, range.to)};
+        if ((to < range.from) || (from > range.to)) {
+            return new Range[]{new Range(from, to), new Range(range.from, range.to)};
         }
 
-        double newFrom = Math.min(this.from, range.from);
-        double newTo = Math.max(this.to, range.to);
+        double newFrom = Math.min(from, range.from);
+        double newTo = Math.max(to, range.to);
 
         return new Range[]{new Range(newFrom, newTo)};
     }
 
     public Range[] getDifference(Range range) {
-        double epsilon = 1.0e-10;
-
-        if ((this.to < range.from) || (this.from > range.to)) {
-            return new Range[]{new Range(this.from, this.to)};
+        if ((to < range.from) || (from > range.to)) {
+            return new Range[]{new Range(from, to)};
         }
 
-        if ((this.from < range.from) && (this.to > range.to)) {
-            Range firstRange = new Range(this.from, range.from - epsilon);
-            Range secondRange = new Range(range.to + epsilon, this.to);
+        if ((from < range.from) && (to > range.to)) {
+            Range firstRange = new Range(from, range.from);
+            Range secondRange = new Range(range.to, to);
 
             return new Range[]{firstRange, secondRange};
         }
 
-        if ((this.from >= range.from) && (this.to <= range.to)) {
+        if ((from >= range.from) && (to <= range.to)) {
             return new Range[]{};
         }
 
-        double newFrom;
-        double newTo;
-
-        if (this.from < range.from) {
-            newFrom = this.from;
-            newTo = range.from - epsilon;
+        if (from < range.from) {
+            return new Range[]{new Range(from, range.from)};
         } else {
-            newFrom = range.to + epsilon;
-            newTo = this.to;
+            return new Range[]{new Range(range.to, to)};
         }
-
-        return new Range[]{new Range(newFrom, newTo)};
     }
 }

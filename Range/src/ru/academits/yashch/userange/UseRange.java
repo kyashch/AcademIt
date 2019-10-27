@@ -1,12 +1,12 @@
 package ru.academits.yashch.userange;
 
-import ru.academits.yashch.range.Range;
+import ru.academits.yashch.range.*;
 
 public class UseRange {
     public static void main(String[] args) {
         Range range1 = new Range(8, 9);
-        Range range2 = new Range(5, 11);
-        Range range3 = new Range(8, 15);
+        Range range2 = new Range(4, 15);
+        Range range3 = new Range(7, 10);
 
         range1.setFrom(5);
         range1.setTo(10);
