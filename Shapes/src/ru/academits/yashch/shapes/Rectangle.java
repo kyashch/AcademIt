@@ -1,6 +1,6 @@
 package ru.academits.yashch.shapes;
 
-public class Rectangle implements Shapes {
+public class Rectangle implements Shape {
     private double width;
     private double height;
 

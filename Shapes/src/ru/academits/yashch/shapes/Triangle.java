@@ -1,6 +1,6 @@
 package ru.academits.yashch.shapes;
 
-public class Triangle implements Shapes {
+public class Triangle implements Shape {
     private double x1;
     private double y1;
     private double x2;
@@ -15,6 +15,10 @@ public class Triangle implements Shapes {
         this.y2 = y2;
         this.x3 = x3;
         this.y3 = y3;
+    }
+
+    private double getSideLength(double x1, double y1, double x2, double y2) {
+        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     }
 
     @Override
@@ -35,27 +39,27 @@ public class Triangle implements Shapes {
 
     @Override
     public double getArea() {
-        double AB = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-        double AC = Math.sqrt(Math.pow((x3 - x1), 2) + Math.pow((y3 - y1), 2));
-        double BC = Math.sqrt(Math.pow((x3 - x2), 2) + Math.pow((y3 - y2), 2));
+        double side1 = getSideLength(x1, y1, x2, y2);
+        double side2 = getSideLength(x1, y1, x3, y3);
+        double side3 = getSideLength(x2, y2, x3, y3);
 
-        double triangleSemiPerimeter = (AB + AC + BC) / 2;
+        double triangleSemiPerimeter = (side1 + side2 + side3) / 2;
 
-        return Math.sqrt(triangleSemiPerimeter * (triangleSemiPerimeter - AB) * (triangleSemiPerimeter - AC) * (triangleSemiPerimeter - BC));
+        return Math.sqrt(triangleSemiPerimeter * (triangleSemiPerimeter - side1) * (triangleSemiPerimeter - side2) * (triangleSemiPerimeter - side3));
     }
 
     @Override
     public double getPerimeter() {
-        double AB = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-        double AC = Math.sqrt(Math.pow((x3 - x1), 2) + Math.pow((y3 - y1), 2));
-        double BC = Math.sqrt(Math.pow((x3 - x2), 2) + Math.pow((y3 - y2), 2));
+        double side1 = getSideLength(x1, y1, x2, y2);
+        double side2 = getSideLength(x1, y1, x3, y3);
+        double side3 = getSideLength(x2, y2, x3, y3);
 
-        return AB + AC + BC;
+        return side1 + side2 + side3;
     }
 
     @Override
     public String toString() {
-        return "Треугольник :\nКоординаты первой точки = " + x1 + ", " + y1 + "\nКоординаты второй точки = " + x2 + ", " + y2 + "\nКоординаты третьей точки = " + x3 + ", " + y3;
+        return "Треугольник :" + System.lineSeparator() + "Координаты первой точки = " + x1 + ", " + y1 + System.lineSeparator() + "Координаты второй точки = " + x2 + ", " + y2 + System.lineSeparator() + "Координаты третьей точки = " + x3 + ", " + y3;
     }
 
     @Override
