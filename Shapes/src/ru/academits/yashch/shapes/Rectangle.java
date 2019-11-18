@@ -31,7 +31,7 @@ public class Rectangle implements Shape {
 
     @Override
     public String toString() {
-        return "Прямоугольник :\nШирина = " + width + "\nВысота = " + height;
+        return "Прямоугольник :" + System.lineSeparator() + "Ширина = " + width + System.lineSeparator() + "Высота = " + height;
     }
 
     @Override

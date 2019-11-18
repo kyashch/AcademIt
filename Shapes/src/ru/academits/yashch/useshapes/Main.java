@@ -5,7 +5,7 @@ import ru.academits.yashch.shapes.*;
 import java.util.Arrays;
 
 public class Main {
-    private static void searchShapeMaxArea(Shape[] shapesArray) {
+    private static void getShapeWithMaxArea(Shape[] shapesArray) {
         AreaComparator comparator = new AreaComparator();
         Arrays.sort(shapesArray, comparator);
 
@@ -13,7 +13,7 @@ public class Main {
         System.out.println("Площадь фигуры = " + shapesArray[shapesArray.length - 1].getArea());
     }
 
-    private static void searchShapeSecondLargestPerimeter(Shape[] shapesArray) {
+    private static void getShapeWithSecondLargestPerimeter(Shape[] shapesArray) {
         PerimeterComparator comparator = new PerimeterComparator();
         Arrays.sort(shapesArray, comparator);
 
@@ -30,8 +30,8 @@ public class Main {
                 new Triangle(1, 1, 5, 10, 10, 1),
                 new Rectangle(40, 60)};
 
-        searchShapeSecondLargestPerimeter(shapesArray);
-        searchShapeMaxArea(shapesArray);
+        getShapeWithSecondLargestPerimeter(shapesArray);
+        getShapeWithMaxArea(shapesArray);
 
         Shape rectangle1 = new Rectangle(6, 3);
 
@@ -40,7 +40,7 @@ public class Main {
         System.out.println(rectangle1.getPerimeter());
 
         for (Shape e : shapesArray) {
-            System.out.println(e.getPerimeter());
+            System.out.println(e);
         }
 
         Shape square1 = new Square(10);
@@ -54,5 +54,7 @@ public class Main {
         System.out.println(triangle1);
         System.out.println(triangle1.getPerimeter());
         System.out.println(triangle1.getArea());
+
+        System.out.println(shapesArray[3]);
     }
 }

@@ -29,7 +29,7 @@ public class Circle implements Shape {
 
     @Override
     public String toString() {
-        return "Круг :\nРадиус = " + radius;
+        return "Круг :" + System.lineSeparator() + "Радиус = " + radius;
     }
 
     @Override

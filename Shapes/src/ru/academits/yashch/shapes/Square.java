@@ -29,7 +29,7 @@ public class Square implements Shape {
 
     @Override
     public String toString() {
-        return "Квадрат :\nсторона = " + squareSide;
+        return "Квадрат :" + System.lineSeparator() + "Сторона = " + squareSide;
     }
 
     @Override
