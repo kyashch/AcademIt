@@ -28,7 +28,7 @@ public class Main {
         Vector vc1 = new Vector(array1);
         Vector vc2 = new Vector(array2);
 
-        vc1.vectorAddition(vc2);
+        vc1.add(vc2);
         System.out.println(vc1);
 
         double[] ar1 = {};
@@ -37,16 +37,16 @@ public class Main {
         Vector vec1 = new Vector(ar1);
         Vector vec2 = new Vector(ar2);
 
-        vec1.vectorSubtraction(vec2);
+        vec1.subtract(vec2);
         System.out.println(vec1);
 
         double[] arr = {3, 6, 2};
         Vector vector5 = new Vector(arr);
 
-        vector5.multiplyingVectorByScalar(4);
+        vector5.multiplyByScalar(4);
         System.out.println(vector5);
 
-        vector5.vectorReversal();
+        vector5.reverse();
         System.out.println(vector5);
 
         System.out.println(vector5.getLength());
@@ -69,12 +69,14 @@ public class Main {
 
         System.out.println("Статические методы :");
 
-        Vector newVector1 = vectorAddition(vector7, vector9);
+        Vector newVector1 = getVectorAddition(vector7, vector9);
         System.out.println(newVector1);
 
-        Vector newVector2 = vectorSubtraction(vector7, vector9);
+        Vector newVector2 = getVectorSubtraction(vector7, vector9);
         System.out.println(newVector2);
 
-        System.out.println(getScalarProductOfVectors(vector7, vector9));
+        System.out.println(getScalarProduct(vector7, vector9));
+
+        System.out.println(vector7);
     }
 }
