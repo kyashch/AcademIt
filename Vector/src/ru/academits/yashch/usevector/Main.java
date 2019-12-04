@@ -15,7 +15,7 @@ public class Main {
         Vector v3 = new Vector(array);
         System.out.println(v3);
 
-        Vector v4 = new Vector(1, array);
+        Vector v4 = new Vector(3, array);
         System.out.println(v4);
 
         System.out.println(v4.getSize());
@@ -31,7 +31,7 @@ public class Main {
         vc1.add(vc2);
         System.out.println(vc1);
 
-        double[] ar1 = {};
+        double[] ar1 = {3};
         double[] ar2 = {4, 5};
 
         Vector vec1 = new Vector(ar1);
@@ -78,5 +78,9 @@ public class Main {
         System.out.println(getScalarProduct(vector7, vector9));
 
         System.out.println(vector7);
+
+        double[] vc = {1, 6, 4};
+        Vector vv = new Vector(4, vc);
+        System.out.print(vv);
     }
 }

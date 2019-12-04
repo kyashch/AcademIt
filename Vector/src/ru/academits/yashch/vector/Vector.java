@@ -18,6 +18,10 @@ public class Vector {
     }
 
     public Vector(double[] components) {
+        if (components.length == 0) {
+            throw new IllegalArgumentException("Длина массива должна быть больше нуля.");
+        }
+
         this.components = Arrays.copyOf(components, components.length);
     }
 
@@ -26,9 +30,11 @@ public class Vector {
             throw new IllegalArgumentException("Размерность вектора (n) должна быть больше нуля.");
         }
 
-        this.components = new double[n];
+        if (n < components.length) {
+            throw new IllegalArgumentException("Размерность вектора меньше чем количество компонент");
+        }
 
-        System.arraycopy(components, 0, this.components, 0, Math.min(n, components.length));
+        this.components = Arrays.copyOf(components, n);
     }
 
     public int getSize() {
@@ -37,10 +43,17 @@ public class Vector {
 
     @Override
     public String toString() {
-        String vectorString = Arrays.toString(components);
-        vectorString = vectorString.replace("[", "{").replace("]", "}");
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
 
-        return vectorString;
+        for (double e : components) {
+            sb.append(e).append(", ");
+        }
+
+        sb.delete(sb.length() - 2, sb.length());
+        sb.append("}");
+
+        return sb.toString();
     }
 
     public void add(Vector vector) {
@@ -70,7 +83,7 @@ public class Vector {
     }
 
     public void reverse() {
-        this.multiplyByScalar(-1);
+        multiplyByScalar(-1);
     }
 
     public double getLength() {
@@ -97,7 +110,7 @@ public class Vector {
             return true;
         }
 
-        if (o == null || o.getClass() != this.getClass()) {
+        if (o == null || o.getClass() != getClass()) {
             return false;
         }
 
@@ -118,26 +131,25 @@ public class Vector {
 
     public static Vector getVectorAddition(Vector vector1, Vector vector2) {
         Vector newVector1 = new Vector(vector1);
-        Vector newVector2 = new Vector(vector2);
 
-        newVector1.add(newVector2);
+        newVector1.add(vector2);
 
         return newVector1;
     }
 
     public static Vector getVectorSubtraction(Vector vector1, Vector vector2) {
         Vector newVector1 = new Vector(vector1);
-        Vector newVector2 = new Vector(vector2);
 
-        newVector1.subtract(newVector2);
+        newVector1.subtract(vector2);
 
         return newVector1;
     }
 
     public static double getScalarProduct(Vector vector1, Vector vector2) {
+        int min = Math.min(vector1.getSize(), vector2.getSize());
         double sum = 0;
 
-        for (int i = 0; i < Math.min(vector1.getSize(), vector2.getSize()); ++i) {
+        for (int i = 0; i < min; ++i) {
             sum += vector1.components[i] * vector2.components[i];
         }
 
