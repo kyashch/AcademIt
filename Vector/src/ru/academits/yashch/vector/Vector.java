@@ -30,11 +30,7 @@ public class Vector {
             throw new IllegalArgumentException("Размерность вектора (n) должна быть больше нуля.");
         }
 
-        if (n < components.length) {
-            throw new IllegalArgumentException("Размерность вектора меньше чем количество компонент");
-        }
-
-        this.components = Arrays.copyOf(components, n);
+        this.components = Arrays.copyOf(components,Math.min(n,components.length));
     }
 
     public int getSize() {
