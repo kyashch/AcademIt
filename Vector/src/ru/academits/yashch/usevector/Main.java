@@ -81,6 +81,9 @@ public class Main {
 
         double[] vc = {1, 6, 4};
         Vector vv = new Vector(4, vc);
-        System.out.print(vv);
+        System.out.println(vv);
+
+        Vector vvv = new Vector(4, a);
+        System.out.println(vvv);
     }
 }
