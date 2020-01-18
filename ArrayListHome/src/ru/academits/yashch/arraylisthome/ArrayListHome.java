@@ -8,29 +8,31 @@ import java.util.Scanner;
 
 public class ArrayListHome {
     public static void main(String[] args) {
-        ArrayList<String> recordList = new ArrayList<>();
-
         try (Scanner scanner = new Scanner(new FileInputStream("input.txt"))) {
+            ArrayList<String> fileLinesList = new ArrayList<>();
+
             while (scanner.hasNextLine()) {
-                recordList.add(scanner.nextLine());
+                fileLinesList.add(scanner.nextLine());
             }
 
-            System.out.println(recordList);
+            System.out.println("Список строк файла: ");
+            System.out.println(fileLinesList);
         } catch (FileNotFoundException e) {
             System.out.println("Файл не найден.");
         }
 
-        ArrayList<Integer> integersListWithoutEvenNumbers = new ArrayList<>(Arrays.asList(4, 0, 8, 1, 5, 3, 1, 8, 3, 4, 5));
+        ArrayList<Integer> integersList = new ArrayList<>(Arrays.asList(4, 0, 8, 1, 5, 3, 1, 8, 3, 4, 5));
 
-        for (int i = 0; i < integersListWithoutEvenNumbers.size(); ++i) {
-            if (integersListWithoutEvenNumbers.get(i) % 2 == 0) {
-                integersListWithoutEvenNumbers.remove(i);
+        for (int i = 0; i < integersList.size(); ++i) {
+            if (integersList.get(i) % 2 == 0) {
+                integersList.remove(i);
 
                 --i;
             }
         }
 
-        System.out.println(integersListWithoutEvenNumbers);
+        System.out.println("Список из целых чисел без четных: ");
+        System.out.println(integersList);
 
         ArrayList<Integer> integersListWithRepetitions = new ArrayList<>(Arrays.asList(9, 1, 3, 6, 8, 1, 6, 3, 7, 8, 9));
         ArrayList<Integer> integersListWithoutRepetitions = new ArrayList<>();
@@ -41,6 +43,7 @@ public class ArrayListHome {
             }
         }
 
+        System.out.println("Список без повторений: ");
         System.out.println(integersListWithoutRepetitions);
     }
 }
