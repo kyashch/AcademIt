@@ -67,11 +67,11 @@ public class Matrix {
 
     public Vector getRow(int index) {
         if (index < 0) {
-            throw new IndexOutOfBoundsException("Индекс не может быть меньше нуля.");
+            throw new ArrayIndexOutOfBoundsException("Индекс не может быть меньше нуля.");
         }
 
         if (index >= getHeight()) {
-            throw new IndexOutOfBoundsException("Строки с таким индексом нет.");
+            throw new ArrayIndexOutOfBoundsException("Строки с таким индексом нет.");
         }
 
         return new Vector(lines[index]);
@@ -79,11 +79,11 @@ public class Matrix {
 
     public void setRow(int index, Vector vector) {
         if (index < 0) {
-            throw new IndexOutOfBoundsException("Индекс не может быть меньше нуля.");
+            throw new ArrayIndexOutOfBoundsException("Индекс не может быть меньше нуля.");
         }
 
         if (index >= getHeight()) {
-            throw new IndexOutOfBoundsException("Столбца с таким индексом нет");
+            throw new ArrayIndexOutOfBoundsException("Индекс выходит за пределы матрицы");
         }
 
         if (getWidth() != vector.getSize()) {
@@ -95,11 +95,11 @@ public class Matrix {
 
     public Vector getColumn(int index) {
         if (index < 0) {
-            throw new IndexOutOfBoundsException("Индекс не может быть меньше нуля.");
+            throw new ArrayIndexOutOfBoundsException("Индекс не может быть меньше нуля.");
         }
 
         if (index >= getWidth()) {
-            throw new IndexOutOfBoundsException("Столбца с таким индексом нет");
+            throw new ArrayIndexOutOfBoundsException("Столбца с таким индексом нет");
         }
 
         double[] newVectorComponents = new double[getHeight()];
