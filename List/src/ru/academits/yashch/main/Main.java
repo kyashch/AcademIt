@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         SinglyLinkedList<Integer> list1 = new SinglyLinkedList<>();
 
-        for(int i = 9; i > 0; --i){
+        for (int i = 9; i > 0; --i) {
             list1.insertItemToStart(i);
         }
 
@@ -20,30 +20,30 @@ public class Main {
 
         SinglyLinkedList<Integer> list2 = new SinglyLinkedList<>();
 
-        for(int i = 13; i >= 0; --i){
+        for (int i = 13; i >= 0; --i) {
             list2.insertItemToStart(i);
         }
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
         System.out.println(list2.deleteItemByIndex(0));
         System.out.println("---------------------------------------");
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
         list2.insertItemByIndex(100, 0);
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
         System.out.println(list2.deleteItemByData(100));
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
@@ -51,7 +51,7 @@ public class Main {
         System.out.println(list2.deleteFirstElement());
         System.out.println("---------------------------------------");
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
@@ -60,7 +60,7 @@ public class Main {
 
         System.out.println("---------------------------------------");
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
@@ -68,7 +68,7 @@ public class Main {
 
         list2.reverse();
 
-        for(int i = 0; i < list2.getSize(); ++i){
+        for (int i = 0; i < list2.getSize(); ++i) {
             System.out.println(list2.getDataByIndex(i));
         }
 
@@ -78,7 +78,7 @@ public class Main {
 
         SinglyLinkedList<Integer> newList = list2.copy();
 
-        for(int i = 0; i < newList.getSize(); ++i){
+        for (int i = 0; i < newList.getSize(); ++i) {
             System.out.println(newList.getDataByIndex(i));
         }
 

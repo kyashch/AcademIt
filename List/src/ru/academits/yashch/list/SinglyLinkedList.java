@@ -42,13 +42,13 @@ public class SinglyLinkedList<T> {
             throw new IndexOutOfBoundsException("Элемента с таким индексом нет");
         }
 
-        ListItem<T> p = head;
+        ListItem<T> item = head;
 
         for (int i = 0; i < index; ++i) {
-            p = p.getNext();
+            item = item.getNext();
         }
 
-        return p;
+        return item;
     }
 
     public T deleteItemByIndex(int index) {
@@ -106,9 +106,9 @@ public class SinglyLinkedList<T> {
             return true;
         }
 
-        for (ListItem<T> p = head.getNext(), prev = head; p != null; prev = p, p = p.getNext()) {
-            if (p.getData().equals(data)) {
-                prev.setNext(p.getNext());
+        for (ListItem<T> thisItem = head.getNext(), previousItem = head; thisItem != null; previousItem = thisItem, thisItem = thisItem.getNext()) {
+            if (thisItem.getData().equals(data)) {
+                previousItem.setNext(thisItem.getNext());
                 --count;
                 return true;
             }
