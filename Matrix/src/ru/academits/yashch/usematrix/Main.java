@@ -25,8 +25,8 @@ public class Main {
         Matrix matrix4 = new Matrix(vectorsArray);
         System.out.println(matrix4);
 
-        System.out.println(matrix4.getHeight());
-        System.out.println(matrix4.getWidth());
+        System.out.println(matrix4.getRowsCount());
+        System.out.println(matrix4.getColumnsCount());
 
         Vector vector4 = new Vector(new double[]{1, 5, 7, 4});
 
@@ -93,5 +93,30 @@ public class Main {
 
         Matrix matrix15 = new Matrix(new double[][]{{1, 5, 6, 8}, {1, 1, 5, 7}, {6, 1, 9, 3}, {1, 7, 4, 2}});
         System.out.println(matrix15.getDeterminant());
+
+        System.out.println("-----------------------------------");
+
+        Matrix matrix16 = new Matrix(array8);
+        System.out.println(matrix16.getRow(3));
+
+        double[] array9 = new double[]{0, 1, 5};
+        matrix16.setRow(0, new Vector(array9));
+        System.out.println(matrix16.getRow(0));
+
+        System.out.println(matrix16);
+        matrix16.transpose();
+        System.out.println(matrix16);
+
+        Matrix matrix17 = new Matrix(new double[][]{{2}});
+        matrix17.transpose();
+        System.out.println(matrix17);
+
+        Matrix matrix18 = new Matrix(new double[][]{{2, 3, 5}, {1, 0, 3}, {9, 15, 2}});
+        Vector vector18 = new Vector(new double[]{1, 5, 8});
+        System.out.println(matrix18.multiplyByVector(vector18));
+
+        Matrix matrix19 = new Matrix(new double[][]{{2, 3, 5}, {1, 0, 3}, {9, 15, 2}, {1, 5, 2}, {10, 12, 15}, {11, 22, 55}, {30, 1, 5}});
+        matrix19.transpose();
+        System.out.println(matrix19);
     }
 }
