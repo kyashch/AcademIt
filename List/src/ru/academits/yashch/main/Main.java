@@ -72,8 +72,6 @@ public class Main {
             System.out.println(list2.getDataByIndex(i));
         }
 
-        System.out.println(list2.getSize());
-
         System.out.println("---------------------------------------");
 
         SinglyLinkedList<Integer> newList = list2.copy();
@@ -82,7 +80,10 @@ public class Main {
             System.out.println(newList.getDataByIndex(i));
         }
 
-        System.out.println(newList.getSize());
+        SinglyLinkedList<Integer> list3 = new SinglyLinkedList<>();
 
+        System.out.println(list3.deleteItemByData(100));
+
+        System.out.println(list3.getFirstElementData());
     }
 }
