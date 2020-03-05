@@ -99,16 +99,31 @@ public class SinglyLinkedList<T> {
             return false;
         }
 
-        if (getFirstElementData().equals(data)) {
-            deleteFirstElement();
-            return true;
-        }
-
-        for (ListItem<T> thisItem = head.getNext(), previousItem = head; thisItem != null; previousItem = thisItem, thisItem = thisItem.getNext()) {
-            if (thisItem.getData().equals(data)) {
-                previousItem.setNext(thisItem.getNext());
-                --count;
+        if (data == null) {
+            if (getFirstElementData() == null) {
+                deleteFirstElement();
                 return true;
+            }
+
+            for (ListItem<T> thisItem = head.getNext(), previousItem = head; thisItem != null; previousItem = thisItem, thisItem = thisItem.getNext()) {
+                if (thisItem.getData() == null) {
+                    previousItem.setNext(thisItem.getNext());
+                    --count;
+                    return true;
+                }
+            }
+        } else {
+            if (getFirstElementData().equals(data)) {
+                deleteFirstElement();
+                return true;
+            }
+
+            for (ListItem<T> thisItem = head.getNext(), previousItem = head; thisItem != null; previousItem = thisItem, thisItem = thisItem.getNext()) {
+                if (thisItem.getData().equals(data)) {
+                    previousItem.setNext(thisItem.getNext());
+                    --count;
+                    return true;
+                }
             }
         }
 
