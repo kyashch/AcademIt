@@ -80,10 +80,12 @@ public class Main {
             System.out.println(newList.getDataByIndex(i));
         }
 
-        SinglyLinkedList<Integer> list3 = new SinglyLinkedList<>();
 
-        System.out.println(list3.deleteItemByData(100));
+        System.out.println("---------------------------------------");
 
-        System.out.println(list3.getFirstElementData());
+        newList.setDataByIndex(3, null);
+        System.out.println(newList.getDataByIndex(3));
+        newList.deleteItemByData(null);
+        System.out.println(newList.getDataByIndex(3));
     }
 }
