@@ -106,7 +106,7 @@ public class SinglyLinkedList<T> {
         }
 
         for (ListItem<T> thisItem = head.getNext(), previousItem = head; thisItem != null; previousItem = thisItem, thisItem = thisItem.getNext()) {
-            if (Objects.equals(thisItem, data)) {
+            if (Objects.equals(thisItem.getData(), data)) {
                 previousItem.setNext(thisItem.getNext());
                 --count;
                 return true;
