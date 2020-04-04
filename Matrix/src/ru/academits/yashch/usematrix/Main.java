@@ -118,5 +118,12 @@ public class Main {
         Matrix matrix19 = new Matrix(new double[][]{{2, 3, 5}, {1, 0, 3}, {9, 15, 2}, {1, 5, 2}, {10, 12, 15}, {11, 22, 55}, {30, 1, 5}});
         matrix19.transpose();
         System.out.println(matrix19);
+
+        System.out.println("--------------------");
+
+        Matrix matrix20 = new Matrix(new double[][]{{1, 5, 6, 8}, {1, 1, 5, 7}, {6, 1, 9, 3}, {1, 7, 4, 2}});
+        System.out.println(matrix20);
+        matrix20.transpose();
+        System.out.println(matrix20);
     }
 }
