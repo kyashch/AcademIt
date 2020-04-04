@@ -91,13 +91,15 @@ public class Matrix {
 
     private void checkRowIndex(int index) {
         if (index < 0 || index >= getRowsCount()) {
-            throw new IndexOutOfBoundsException("Индекс строки " + index + " выходит за допустимые границы : " + 0 + "-" + (getRowsCount() - 1));
+            throw new IndexOutOfBoundsException("Индекс строки " + index + " выходит за допустимые границы : "
+                    + 0 + "-" + (getRowsCount() - 1));
         }
     }
 
     private void checkColumnIndex(int index) {
         if (index < 0 || index >= getColumnsCount()) {
-            throw new IndexOutOfBoundsException("Индекс столбца " + index + " выходит за допустимые границы : " + 0 + "-" + (getColumnsCount() - 1));
+            throw new IndexOutOfBoundsException("Индекс столбца " + index + " выходит за допустимые границы : "
+                    + 0 + "-" + (getColumnsCount() - 1));
         }
     }
 
@@ -111,7 +113,8 @@ public class Matrix {
         checkRowIndex(index);
 
         if (getColumnsCount() != vector.getSize()) {
-            throw new IllegalArgumentException("Длина вектора - " + vector.getSize() + " должна быть равна длине строки - " + getColumnsCount());
+            throw new IllegalArgumentException("Длина вектора - " + vector.getSize() + " должна быть равна длине строки - "
+                    + getColumnsCount());
         }
 
         rows[index] = new Vector(vector);
@@ -273,8 +276,8 @@ public class Matrix {
 
     public static Matrix getProduct(Matrix matrix1, Matrix matrix2) {
         if (matrix1.getColumnsCount() != matrix2.getRowsCount()) {
-            throw new IllegalArgumentException("Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы" + System.lineSeparator() +
-                    "Количество столбцов первой матрицы = " + matrix1.getColumnsCount() + System.lineSeparator() +
+            throw new IllegalArgumentException("Количество столбцов первой матрицы должно быть равно количеству строк второй матрицы"
+                    + System.lineSeparator() + "Количество столбцов первой матрицы = " + matrix1.getColumnsCount() + System.lineSeparator() +
                     "Количество строк второй матрицы = " + matrix2.getRowsCount());
         }
 
